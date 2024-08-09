@@ -1,0 +1,55 @@
+### 1. 개념
+자바스크립트의 확장 문법
+Javascript + XML / HTML
+
+### JSX 예제코드
+const element = <h1>에제코드</h1>;
+
+### 2. 장점
+1. 간결한 코드 
+2. 가독성 형
+3. 인젝션 어택 : 하나의 해킹 방법으로 XSS라고 불리는 크로스 사이트 스크립팅 어택을 방어하므로 잠재적인 보안 위협을 줄일 수 있다는 장점이 있음
+
+JSX를 사용한 코드
+
+const element = (
+	<h1 className="greeting">
+			hello, world!
+	</h1>
+)
+
+JSX를 사용하지 않은 코드
+
+<!-- JSX 코드를 자바스크립트로 변환하는 것이 React의 createElement 함수이다. -->
+const element = React.createElement(
+			'h1'
+			{ className : 'greeting' },
+			'Hello, world!'
+)
+
+### 3. 파라미터
+React.createElement(
+	type, // 첫번째 파라미터 : HTML태그나 리액트 컴포넌트= 개발자 도구로 봤을때 HTML태그가 됨
+ 	[props], // 두번째 파라미터 : 엘리먼트의 속성= class나 style 등등
+ 	[...children] // 세번째 파라미터 : 자식 피라미터
+)
+
+### 4. 사용법
+Javascript + XML / HTML
+
+XML / HTML 코드를 쓰다가 중간에 Javascript를 사용하고 싶으면 {}로 자바스크립트 코드를 묶고 사용
+
+
+### 예제코드
+const name = '에반';
+const element = <h1>안녕, {name}</h1>
+<!-- 이 코드에서는 {name}이 함수-->
+
+ReactDOM.render(
+    element,
+    document.getElementById('root')
+);
+
+### 태그 속성에 값을 넣고 싶으면 
+1. 큰따옴표 사이에 문자열을 넣기
+2. 증괄호 사이에 자바스크립트 코를 넣기
