@@ -14,7 +14,7 @@ JSX를 사용한 코드
 
 const element = (
 	<h1 className="greeting">
-			hello, world!
+		hello, world!
 	</h1>
 )
 
@@ -22,9 +22,9 @@ JSX를 사용하지 않은 코드
 
 <!-- JSX 코드를 자바스크립트로 변환하는 것이 React의 createElement 함수이다. -->
 const element = React.createElement(
-			'h1'
-			{ className : 'greeting' },
-			'Hello, world!'
+		'h1'
+		{ className : 'greeting' },
+		'Hello, world!'
 )
 
 ### 3. 파라미터
@@ -52,4 +52,4 @@ ReactDOM.render(
 
 ### 태그 속성에 값을 넣고 싶으면 
 1. 큰따옴표 사이에 문자열을 넣기
-2. 증괄호 사이에 자바스크립트 코를 넣기
+2. 증괄호 사이에 자바스크립트 코드를 넣기
