@@ -58,3 +58,19 @@ const refContainer = useRef(초기값)
 이름이 use로 시작하고 내부에서 다른 Hook을 호출하는 하나의 자바스크립트 함수
 1. 꼭 use로 시작해야됨
 2. 호출 또한 완전히 독립적
+
+### 11. useId()
+서버와 클라이언트에서 고유한 id 값을 생성하기 위한 훅
+
+### 12. useTransition()
+긴급하지 않은 업대이트를 위한 훅으로 기본적으로 일반적인 상태 업데이트는 긴급한 업데이트로 처리됨
+
+### 13. useDeferredValue()
+긴급하지 않은 업데이트를 재렌더링하는 것을 연기할 수 있게 해줌
+
+### 14. useSyncExternalStore()
+외부 저장소를 구독할 수 있게 해주는 훅
+
+### 15. useInsertionEffectHook()
+CSS in JS 라이브러리를 위한 훅이며 렌더링 과정에서 스타일 삽입의 성능 문제를 해결할 수 있게 해줌
+

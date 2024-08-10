@@ -1,0 +1,90 @@
+### 1. styling
+
+1. CSS
+스타일링을 위한 하나의 언어
+
+- 하나의 엘리먼타가 여러 개의 스타일 규칙을 만족할 경우에 해당 스타일들이 우선순위를 가지고 하나씩 적용하개 됨
+- 하나의 스타일이 여러 개의 엘리먼트에 적용될 수 있고, 하나의 엘리먼트에도 여러 개의 스타일이 적용될 수 있음
+
+2. Select
+엘리먼트에 스타일이 적용되는 규칙
+
+### 2. Selector
+1. Element selector
+단순하게 특정 html 태그를 선택하기 위한 엘리먼트 셀렉터
+
+2. ID selector
+html에서는 엘리먼트의 아이디를 정의할 수 있는데, ID 셀렉터는 이 아이디를 기반으로 선택하는 형태이머, 샵 뒤에 아이디를 넣어 사용
+
+3. Class selector
+여러 개의 엘리먼트를 분류하기 위해 사용하고, 점 뒤에 클레스명을 넣어 사용
+
+4. Unoversal select
+특정 엘리먼트에만 선택적으로 적용하는 것이 아니라 엘리먼트에 적용하기 위한 셀렉터
+
+5. Grouping selector
+여러가지 선택자를 그룹으로 묶어 하나의 스타일을 적용하기 위해 사용하는 셀렉터
+
+### 3. Element 상태 관련 select
+1. :hover
+마우스 커서가 엘리먼트 위에 올라왔을 때
+
+2. :active
+주로 <a>태그에 사용되는데, 엘리먼트가 클릭됐을 때
+
+3. :focus
+주로 <input>태그에 사용되는데, 엘리먼트가 초점을 갖고 있을 경우를 의미
+
+4. :checked
+radio button 이나 checkbox 같은 유형의 <input> 태그가 체크되어 있는 경우
+
+5. :first-child, :last-child
+상위 엘리먼트를 기준으로 각각 첫번째 child, 마지막 child일 경우를 의미
+
+### 4. Layout
+화면에 일리먼트를 어떻게 배치할 것인가
+
+1. display
+엘리먼트를 어떻게 표시할지를 위한 속성으로 none, block, flex, inline 등이 있음
+
+2. visibility
+엘리먼트를 화면에 보이거나 감추기 위해 사용하는 속성으로 visible, hidden 등이 있음
+
+3. position
+엘리먼트를 어떻게 위치할 것인지로 static, fixes, relative, absolute 등이 있음
+
+4. width
+가로길이를 의미
+
+5. height
+세로길이를 의미
+
+6. Flexbox
+다양한 레이아웃을 구성하기 위해서 만들어졌고 크게 컨테이너와 아이템으로 구성됨
+
+7. flex-direction
+아이템들이 어떤 방향으로 배치될 것인지를 지정하고 row, column, row-reverse 등이 있음
+
+8. align-items
+요소를 어떻게 정렬할지를 지정하고 stretch, flex-start, flex-end, center, baseline 등이 있음
+
+9. justfiy-content
+컨테이너 내에서 아이템들을 어떻게 맞출지를 지정하고 flex-start, center, flex-end, space-between, space-around 등이 있음
+
+10. font-family
+사용할 글꼴의 이름을 적어주면 되는데 여기서 주의할 점은 글꼴의 이름에 띄어쓰기가 들어갈 경우 큰 다운표로 묶어야함
+
+### 05. styled-components
+CSS 문법을 그대로 사용하면서 결과물을 스타일링된 컴포넌트 형태로 만들어주는 오픈소스 라이브러리
+
+<!-- 사용 예시 -->
+import React from "react";
+import styled from "styled-components";
+
+const Wrapper = styled.div``
+    padding: 1em;
+    background: #000;
+`;
+
+1. tagged template literal
+템플릿 리터럴의 발전된 형태로써, 함수 형태로 사용할 수 있음
