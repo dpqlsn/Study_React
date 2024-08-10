@@ -1,0 +1,45 @@
+### 1. Form
+사용자로부터 입력을 받기 위해 사용
+
+### 2. 리액트의 form과 HTML의 form 차이
+리액트는 컴포넌트 내부에서 스테아트를 통해 데이터를 관리하지만 html의 폼은 엘라먼트 내부에 각각의 스테이트가 존재
+
+<!-- html from -->
+<form>
+    <label>
+        이름:
+        <input type="text" name="name" >
+    </label>
+    <button tyoe="submit">제출</button>
+</form>
+
+### 3. Controlled Components
+누군가의 통제를 받는 컴포넌트 즉, 값이 리액트의 통제를 받는 input form Element
+
+- html는 자체적으로 state를 관리
+- Controlled Component는 모든 데이터를 state에서 관리
+> 사용자의 입력을 **직접적**으로 제어할 수 있음
+
+### 4. 다양한 폼
+
+1. Textarea 태그 
+여러 줄에 걸쳐 긴 텍스트를 입력 받기 위한 코드
+
+2. Select 태그
+Drop-down 목록을 보여주기 위한 html 태그, 여러가지 옵션 중 하나를 선택할 수 있게 함
+
+<!-- 여러 개의 옵션을 선택 가능하게 하고 싶으면 multiple을 true로 설정해주면 됨 -->
+<select multiple={true} value={['B', 'C']}>
+
+3. File input 태그
+디바이스의 저장 장치로부터 하나 또는 여러 개의 파일을 선택할 수 있게 해주는 html 태그
+
+<input tyoe="file" />
+
+리액트에서는 Uncontrolled Component 즉, 값이 리액트의 통제를 받지 않음
+
+4. Multiple inputs
+하나의 입력에서 여러개의 입력을 받기 위해서는 여러개의 스테이트를 선언해 각각의 입력에 대해 사용하면 됨
+
+5. input null value
+코드를 수정하지 않는 한 입력 값을 바꿀 수 없음, 만일 바꾸고 싶으면 null 또는 Undefined 를 넣으면 됨

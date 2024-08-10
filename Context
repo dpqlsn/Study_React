@@ -1,0 +1,32 @@
+### 1. context
+컴포넌트의 props를 통한 데이터 전달
+어떤 컴포넌트든 데이터에 쉽게 접근이 가능
+
+> 데이터를 팔요로 하는 컴포넌트애 곧바로 데이터 전달이 가능
+
+### 2. 언제 사용?
+1. 로그인 여부, 로그인 정보, 현재 언어 등등..
+
+### 3. 고려할 점
+1. 컴포넌트가 Context가 연동되면 재사용성이 많이 떨어짐
+2. 데이터를 필요로 하는 경우가 아니라면 props를 사용
+
+### 4. Context 생성
+
+const MyContext = React.createContext(기본값);
+
+만약 상위 레벨에 매칭되는 provider가 없다면 기본 값이 사용됨, 그러나 Undefined를 넣으면 기본 값이 사용 안됨
+
+### 5. Context Provider 사용
+
+<MyContext.Provider value={/>* some value */}>
+
+### 6. 주의사항
+Provider 컴포넌트가 재렌더링될 때마다 모든 하위 consumer 컴포넌트가 재렌더링 됨
+
+### 7. 여러 개의 Context 사용하기
+context.provider를 중첩해서 사용하는 방식으로 구현 가능
+
+### 8. useContext() 훅을 사용하기
+매번 Context를 사용하는 것 보다 useContext()를 사용하여 컨텍스트를 더 쉽게 사용할 수 있게 해줌
+단, 꽤 무거운 작업이면 별도로 최적화를 해줘야 함
