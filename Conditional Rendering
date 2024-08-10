@@ -1,0 +1,35 @@
+### 1. Condition Rendering
+조건에 따른 렌더링 (조건부 렌더링)
+- 어떠한 조건에 따라서 렌더링이 달라지는 것
+
+function Greeting(props){
+    const isLoggedIn = props.isLoggedIn;
+
+<!-- 저건부 렌더링을 사용함 -->
+    if(isLoggedIn){
+        return <UserGreeting />;
+    }
+    return <GuesGreeting />;
+}
+
+### 2. Javascript의 Truthy와 Falsy
+- Truthy는 true는 아니지만 true로 여겨지는 값 
+- Falsy는 false는 아니지만 false로 여겨지는 값 
+
+### 3. Element Variables
+엘리먼트를 변수처럼 다루는 방법
+
+### 4. Inline Condition
+조건문을 코드 안에 집어넣는 것
+
+1. Inline if
+if문을 필요한 곳에 직접 넣는 것
+- True && expression > expression
+- false && expression > false
+<!-- 결과가 정해져있는 곳에서 불필요한 연산을 하지 않기 위함 -->
+
+2. Inline if-Else
+condition ? true : false
+
+### 5. Component 렌더링 막는 법
+null을 리턴라면 렌더링되지 않음

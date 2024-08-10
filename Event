@@ -1,0 +1,28 @@
+### 1. Event
+특정 시간을 의미함
+
+1. DOM의 Event
+
+<button onclick="active()">
+    Activate
+</button>
+
+<!-- 함수를 전달하는 방식에 차이가 있음 -->
+
+2. 리액트의 Event
+<button onClick={active}>
+    Activate
+</button>
+
+### 2. Event Handler (=Event Listener)
+해당 이벤트를 처리하는 함수로 어떤 사간이 발생하면 사건을 처리하는 역할
+
+### 3. 정의하는 방법
+1. 함수 안에 또 다른 함수로 정의하는 방법
+2. arrow function을 사용하여 정의하는 방법
+
+### 4. Arguments
+함수에 주장할 내용 즉, 함수에 전달할 데이터
+
+### 5. Parameter
+매개변수
