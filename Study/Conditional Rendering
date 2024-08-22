@@ -5,7 +5,7 @@
 function Greeting(props){
     const isLoggedIn = props.isLoggedIn;
 
-<!-- 저건부 렌더링을 사용함 -->
+<!-- 렌더링을 사용함 -->
     if(isLoggedIn){
         return <UserGreeting />;
     }
