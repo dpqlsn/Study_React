@@ -220,36 +220,6 @@ getElementByclassName //class값 접근
 innerText, innerHTML
 ```
 
-### 이벤트
-
-- 자주 쓰이는
-    
-    
-    | abort | 이미지의 로딩이 중단되었을 때 | img |
-    | --- | --- | --- |
-    | load | 페이지, 이미지의 로딩 완료 시 | body, img |
-    | unload | 다른 페이지로 이동할 때 | body |
-    | 마우스 | click | 마우스 클릭 시 |
-    |  | dblclick | 더블클릭 시 |
-    |  | mousedown | 마우스 버튼을 눌렀을 때 |
-    |  | mousemove | 마우스 포인터가 이동했을 때 |
-    |  | mouseout | 요소에서 마우스 포인터가 떨어졌을 때 |
-    |  | mouseover | 요소에 마우스 포인터가 겹쳤을 때 |
-    |  | mouseup | 마우스 버튼을 떼어 놓았을 때 |
-    |  | contextmenu | context menu가 표시되기 전 |
-    | 키 | keydown | 키를 눌렀을 때 |
-    |  | keypress | 키를 누른 상태 |
-    |  | keyup | 키를 떼어 놓았을 때 |
-    | 폼 | change | 내용이 변경되었을 때 |
-    |  | reset | 리셋 버튼이 눌렸을 때 |
-    |  | submit | 서브밋 버튼이 눌렸을 때 |
-    | 포커스 | blur | 요소로부터 포커스가 벗어났을 때 |
-    |  | focus | 요소가 포커스되었을 때 |
-    | 그 외 | resize | 요소의 사이즈를 변경했을 때 |
-    |  | scroll | 스크롤했을 때 |
-    |  | error | 에러가 났을 때 |
-    |  | drag | 드래그 될 때 |
-
 ### Callback Function ( 콜백함수 )
 
 1. 비동기 문법, 보통 백엔드랑 연결될 때 사용
