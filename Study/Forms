@@ -34,7 +34,7 @@ Drop-down 목록을 보여주기 위한 html 태그, 여러가지 옵션 중 하
 3. File input 태그
 디바이스의 저장 장치로부터 하나 또는 여러 개의 파일을 선택할 수 있게 해주는 html 태그
 
-<input tyoe="file" />
+<input type="file" />
 
 리액트에서는 Uncontrolled Component 즉, 값이 리액트의 통제를 받지 않음
 
