@@ -7,7 +7,7 @@
 
 const [변수명, set햠수명] = useState(초기값);
 
-### 2. ustEffect
+### 2. useEffect
 sideEffect를 사용하기 위한 훅
 
 3. side effect
