@@ -15,7 +15,7 @@
 
 const MyContext = React.createContext(기본값);
 
-만약 상위 레벨에 매칭되는 provider가 없다면 기본 값이 사용됨, 그러나 Undefined를 넣으면 기본 값이 사용 안됨
+만약 상위 레벨에 매칭되는 provider가 없다면 기본 값이 사용됨, 그러나 Undefined를 넣으면 기본 값 사용이 안됨
 
 ### 5. Context Provider 사용
 
