@@ -11,7 +11,7 @@
 */
 
 export default function Gallery() {
-    // 🔴 절대 컴포넌트 안에 다른 컴포넌트를 정의하면 안 됩니다!
+    // 🔴 절대 컴포넌트 안에 다른 컴포넌트를 정의하면 안 됨
     function Profile() {
       // ...
     }
@@ -21,7 +21,7 @@ export default function Gallery() {
 export default function Gallery() {
     // ...
     }
-  // ✅ 최상위 레벨에서 컴포넌트를 선언합니다
+  // ✅ 최상위 레벨에서 컴포넌트를 선언
     function Profile() {
     // ...
 }
@@ -33,3 +33,31 @@ export default function Congratulations(){
         <h1>Good job!</h1>
     );
 }
+
+// 컨포넌트 import 및 export
+
+function Profile() {
+    return (
+    <img
+        src="https://i.imgur.com/MK3eW3As.jpg"
+        alt="Katherine Johnson"
+    />
+    );
+}
+
+export default function Gallery() {
+    return (
+        <section>
+            <h1>Amazing scientists</h1>
+            <Profile />
+            <Profile />
+            <Profile />
+        </section>
+    );
+}
+
+/* 하는 방법 
+1. 컴포넌트를 추가할 JS 파일을 생성
+2. 새로 만든 파일에서 함수 컴포넌트를 export
+3. 컴포넌트를 사용할 파일에서 import
+*/
