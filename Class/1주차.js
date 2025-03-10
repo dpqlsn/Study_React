@@ -76,3 +76,77 @@ export default function Gallery() {
         ...
     </ul>
 </div>
+
+// props
+/*
+1. Props를 전달하려면 HTML 어트리뷰트를 사용할 때와 마찬가지로 JSX에 props를 추가
+2. Props를 읽으려면 구조 분해 할당 문법을 사용
+3. size = 100 과 같은 기본값을 지정할 수 있으며, 이는 누락되거나 undefined 인 props에 사용됨
+4. Props는 읽기 전용 스냅샷으로, 변경할 때마다 새로운 버전의 props를 받음
+5. Props는 변경이 불가능함, 상호작용이 필요한 경우 state 설정하여 사용
+*/
+
+import { getImageUrl } from './utils.js';
+
+function Profile({
+    imageId,
+    name,
+    profession,
+    awards,
+    discovery,
+    imageSize = 70
+    }) {
+    return (
+        <section className="profile">
+        <h2>{name}</h2>
+        <img
+            className="avatar"
+            src={getImageUrl(imageId)}
+            alt={name}
+            width={imageSize}
+            height={imageSize}
+        />
+        <ul>
+            <li><b>Profession:</b> {profession}</li>
+            <li>
+            <b>Awards: {awards.length} </b>
+            ({awards.join(', ')})
+            </li>
+            <li>
+            <b>Discovered: </b>
+            {discovery}
+            </li>
+        </ul>
+        </section>
+    );
+}
+
+    export default function Gallery() {
+    return (
+        <div>
+        <h1>Notable Scientists</h1>
+        <Profile
+            imageId="szV5sdG"
+            name="Maria Skłodowska-Curie"
+            profession="physicist and chemist"
+            discovery="polonium (chemical element)"
+            awards={[
+            'Nobel Prize in Physics',
+            'Nobel Prize in Chemistry',
+            'Davy Medal',
+            'Matteucci Medal'
+            ]}
+        />
+        <Profile
+            imageId='YfeOqp2'
+            name='Katsuko Saruhashi'
+            profession='geochemist'
+            discovery="a method for measuring carbon dioxide in seawater"
+            awards={[
+            'Miyake Prize for geochemistry',
+            'Tanaka Prize'
+            ]}
+        />
+        </div>
+    );
+}
