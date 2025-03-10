@@ -61,3 +61,18 @@ export default function Gallery() {
 2. 새로 만든 파일에서 함수 컴포넌트를 export
 3. 컴포넌트를 사용할 파일에서 import
 */
+
+// JSX
+
+// 하나의 큰 요소인 부모태그로 감싸야함
+<div>
+<h1>Hedy Lamarr's Todos</h1>
+    <img
+        src="https://i.imgur.com/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        class="photo"
+    />
+    <ul>
+        ...
+    </ul>
+</div>
