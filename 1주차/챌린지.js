@@ -74,7 +74,8 @@ import { getImageUrl } from './utils.js';
     function Avatar({ person, size }) {
     let thumbnailSize = 's';
     if (size > 90) {
-        thumbnailSize = 'b';
+        thumbnailSize = 'b'; 
+        // 만약 size 가 90 보다 크면 b의 해상도 사용
     }
     return (
         <img
@@ -114,7 +115,7 @@ import { getImageUrl } from './utils.js';
         return (
         <div className="card">
             <div className="card-content">
-            {children}
+            {children} // children props 사용해 쉽게 접근 가능
             </div>
         </div>
         );
@@ -134,6 +135,7 @@ import { getImageUrl } from './utils.js';
             />
             </Card>
             <Card>
+            // Card 컴포넌트 하나로 관리
             <h1>About</h1>
             <p>Aklilu Lemma was a distinguished Ethiopian scientist who discovered a natural treatment to schistosomiasis.</p>
             </Card>
