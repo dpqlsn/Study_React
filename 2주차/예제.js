@@ -214,3 +214,34 @@ function Recipe({ id, name, ingredients }) {
         )}
         </div>
     );}
+
+// 순수 컴포넌트
+
+import Panel from './Panel.js';
+import { getImageUrl } from './utils.js';
+
+    export default function Profile({ person }) {
+    return (
+        <Panel>
+        <Header person={person} />
+        <Avatar person={person} />
+        </Panel>
+    )
+    }
+    // Props를 통해 Profile의 모든 정보를 Header 및 Avatar로 전달
+
+    function Header({ person }) {
+    return <h1>{person.name}</h1>;
+    }
+
+    function Avatar({ person }) {
+    return (
+        <img
+        className="avatar"
+        src={getImageUrl(person)}
+        alt={person.name}
+        width={50}
+        height={50}
+        />
+    );
+    }
