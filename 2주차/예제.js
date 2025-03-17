@@ -70,3 +70,40 @@ function Item({ name, importance }) {
         );
     }
     
+// 변수와 일련의 ? :를 if로 리팩토링
+
+    function Drink({ name }) {
+        let part, caffeine, age;
+        if (name === 'tea') {
+        part = 'leaf';
+        caffeine = '15–70 mg/cup';
+        age = '4,000+ years';
+        } 
+        if (name === 'coffee') {
+        part = 'bean';
+        caffeine = '80–185 mg/cup';
+        age = '1,000+ years';
+        }
+        return (
+        <section>
+            <h1>{name}</h1>
+            <dl>
+            <dt>Part of plant</dt>
+            <dd>{part}</dd>
+            <dt>Caffeine content</dt>
+            <dd>{caffeine}</dd>
+            <dt>Age</dt>
+            <dd>{age}</dd>
+            </dl>
+        </section>
+        );
+    }
+    
+    export default function DrinkList() {
+        return (
+        <div>
+            <Drink name="tea" />
+            <Drink name="coffee" />
+        </div>
+        );
+    }
