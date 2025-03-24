@@ -9,8 +9,11 @@ export default function LikeButton() {
 
     const toggleLike = () => {
         setLiked(!liked);
-        setCount((prev) => (liked ? prev - 1 : prev + 1));
+        // 좋아요 하트 색
+        setCount((prev) => (liked ? prev - 1 : prev + 1)); 
+        // 카운트
         setOff(!off);
+        // on, off 띄우기
     };
 
     return (
@@ -34,10 +37,12 @@ export default function Counter() {
 
     const increase = () => {
         setCount((prev) => (prev < 10 ? prev + 1 : prev));
+        // 10 을 초과하는지 확인 후 오르게 하기
     };
 
     const decrease = () => {
         setCount((prev) => (prev > 0 ? prev - 1 : prev));
+        // 0 보다 작아지지 않는지 확인
     };
 
     return (
@@ -60,6 +65,7 @@ export default function VoteButtons() {
         <div className="">
         <button onClick={() => setUpvotes(upvotes + 1)}>👍 {upvotes}</button>
         <button onClick={() => setDownvotes(downvotes + 1)}>
+            // 투표 하면 값이 1씩 오르도록 
             👎 {downvotes}
         </button>
         </div>
@@ -77,6 +83,7 @@ import { useState } from "react";
     const toggleCheck = (item) => {
         setCheckedItems((prev) =>
         prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+        // 필터로 체크표시 
         );
     };
 
@@ -92,6 +99,7 @@ import { useState } from "react";
             <span
                 style={{
                 fontWeight: checkedItems.includes(item) ? "bold" : "normal",
+                // 체크 시 글씨체 볼드 바꾸기
                 }}
             >
                 {item}
