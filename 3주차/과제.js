@@ -64,3 +64,34 @@ import React, { useState } from 'react';
         </div>
     );
 }
+
+// 리스트에 항목 추가하기 
+
+import React, { useState } from 'react';
+
+function App() {
+    const [item, setItem] = useState('');
+    const [list, setList] = useState([]);
+
+    const handleAdd = () => {
+        if (item.trim() !== '') {
+        setList([...list, item]);
+        setItem(''); 
+        }
+    };
+
+    return (
+        <div>
+        <input
+            value={item}
+            onChange={(e) => setItem(e.target.value)}
+        />
+        <button onClick={handleAdd}>추가</button>
+        <ul>
+            {list.map((listItem, index) => (
+            <li key={index}>{listItem}</li> 
+            ))}
+        </ul>
+        </div>
+    );
+}
