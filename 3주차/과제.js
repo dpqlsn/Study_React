@@ -1,97 +1,103 @@
-// useState 를 활용한 화이트 & 다크모드
+// 좋아요 토글 버튼 
 
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function LightSwitch() {
-    const [isDark, setIsDark] = useState(false);
+export default function LikeButton() {
+    const [liked, setLiked] = useState(false);
+    const [count, setCount] = useState(0);
+    const [off, setOff] = useState(false);
 
-    function handleClick() {
-        setIsDark(prevIsDark => !prevIsDark);
-    }
-
-    return (
-        <div style={{ backgroundColor: isDark ? 'black' : 'white', height: '100vh'}}>
-            <button onClick={handleClick}>
-                Toggle the lights
-            </button>
-        </div>
-    );
-}
-
-import React, { useState } from 'react';
-
-function App() {
-        const [isDark, setIsDark] = useState(false);
-
-    const toggleMode = () => {
-        setIsDark(prevIsDark => !prevIsDark);
+    const toggleLike = () => {
+        setLiked(!liked);
+        setCount((prev) => (liked ? prev - 1 : prev + 1));
+        setOff(!off);
     };
 
     return (
-        <div
-        style={{
-            backgroundColor: isDark ? '#333' : '#fff',
-            color: isDark ? '#fff' : '#000',
-            height: '100vh',
-            padding: '2rem',
-            transition: '0.3s'
-        }}
-        >
-        <h1>{isDark ? '🌙 다크 모드' : '☀️ 라이트 모드'}</h1>
-        <button onClick={toggleMode}>
-            {isDark ? '라이트 모드로 전환' : '다크 모드로 전환'}
+        <>
+        <p>{off ? "off" : "on"}</p>
+        <button onClick={toggleLike}>
+            <span>{liked ? "❤️" : "🤍"}</span>
+            <span>{count}</span>
+        </button>
+        </>
+    );
+}
+
+
+// 증감 카운터
+
+import { useState } from "react";
+
+export default function Counter() {
+    const [count, setCount] = useState(0);
+
+    const increase = () => {
+        setCount((prev) => (prev < 10 ? prev + 1 : prev));
+    };
+
+    const decrease = () => {
+        setCount((prev) => (prev > 0 ? prev - 1 : prev));
+    };
+
+    return (
+        <div>
+        <button onClick={decrease} >-</button>
+        <span>{count}</span>
+        <button onClick={increase}>+</button>
+        </div>
+    );}
+
+// 투표 버튼
+
+import { useState } from "react";
+
+export default function VoteButtons() {
+    const [upvotes, setUpvotes] = useState(0);
+    const [downvotes, setDownvotes] = useState(0);
+
+    return (
+        <div className="">
+        <button onClick={() => setUpvotes(upvotes + 1)}>👍 {upvotes}</button>
+        <button onClick={() => setDownvotes(downvotes + 1)}>
+            👎 {downvotes}
         </button>
         </div>
     );
 }
 
-// 입력 값 반영하기
+// 투두
 
-import React, { useState } from 'react';
+import { useState } from "react";
 
-    function App() {
-    const [text, setText] = useState('');
+    export default function Checklist() {
+    const items = ["공부하기", "청소하기", "운동하기"];
+    const [checkedItems, setCheckedItems] = useState([]);
 
-    return (
-        <div>
-        <input
-            value={text}
-            onChange={(e) => {
-            setText(e.target.value);
-            }}
-        />
-        <p>현재 입력한 내용: {text}</p>
-        </div>
-    );
-}
-
-// 리스트에 항목 추가하기 
-
-import React, { useState } from 'react';
-
-function App() {
-    const [item, setItem] = useState('');
-    const [list, setList] = useState([]);
-
-    const handleAdd = () => {
-        if (item.trim() !== '') {
-        setList([...list, item]);
-        setItem(''); 
-        }
+    const toggleCheck = (item) => {
+        setCheckedItems((prev) =>
+        prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+        );
     };
 
     return (
         <div>
-        <input
-            value={item}
-            onChange={(e) => setItem(e.target.value)}
-        />
-        <button onClick={handleAdd}>추가</button>
-        <ul>
-            {list.map((listItem, index) => (
-            <li key={index}>{listItem}</li> 
-            ))}
-        </ul>
+        {items.map((item) => (
+            <label key={item}>
+            <input
+                type="checkbox"
+                checked={checkedItems.includes(item)}
+                onChange={() => toggleCheck(item)}
+            />
+            <span
+                style={{
+                fontWeight: checkedItems.includes(item) ? "bold" : "normal",
+                }}
+            >
+                {item}
+            </span>
+            </label>
+        ))}
         </div>
     );
-}
+    }
