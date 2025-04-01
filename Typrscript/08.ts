@@ -24,4 +24,5 @@ enum E { A, B, C }
 - strict 모드 설정하기
  */
 
+
 // 참고 : https://joshua1988.github.io/ts/
