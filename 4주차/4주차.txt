@@ -13,6 +13,7 @@ Immer
 
 useState Hook
 - useState는 React의 Hook 중 하나로, 함수형 컴포넌트에서 상태 관리를 해줌
+- useState는 하나의 인자를 받고 이 인자는 상태의 초기값을 설정하는데에 사용해야함
 
 React 컴포넌트
 - React 컴포넌트는 UI를 구성하는 독립적인 단위로, 재사용 가능한 코드 블록
