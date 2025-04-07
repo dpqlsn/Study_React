@@ -65,6 +65,56 @@ export default function ScrollToBox() {
     );
     }
 
+// 과제 3
+import { useState } from 'react';
+
+export default function CatFriends() {
+    const [index, setIndex] = useState(0);
+    return (
+        <>
+        <nav>
+            <button onClick={() => {
+            if (index < catList.length - 1) {
+                setIndex(index + 1);
+                // index가 마지막 고양이보다 크기가 작으면 +1
+            } else {
+                setIndex(0);
+                // 마지막 고양이면 0으로 초기화
+            }
+            }}>
+            Next
+            </button>
+        </nav>
+        <div>
+            <ul>
+            {catList.map((cat, i) => (
+                <li key={cat.id}>
+                <img
+                    className={
+                    index === i ?
+                    // 조건이 만족할 때 선택된 이미지
+                        'active' :
+                        ''
+                    }
+                    src={cat.imageUrl}
+                    alt={'Cat #' + cat.id}
+                />
+                </li>
+            ))}
+            </ul>
+        </div>
+        </>
+    );
+    }
+
+    const catList = [];
+    for (let i = 0; i < 10; i++) {
+    catList.push({
+        id: i,
+        imageUrl: 'https://loremflickr.com/250/200/cat?lock=' + i
+    });
+}
+
 // 과제 4
 // ✅ useState 훅이란 :  React에서 DOM 요소나 값을 참조하기 위해 사용하는 훅으로 렌더링 없이 값지정을 할 때 사용함
 // ✅ useState & useRef 차이점 : useRef는 다시 렌더링되지 않고 .current를 통해 직접 접근한다면
