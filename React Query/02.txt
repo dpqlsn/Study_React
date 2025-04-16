@@ -1,0 +1,18 @@
+Query Invalidation
+- 쿼리를 무효화 시켜서 최신 데이터를 다시 fetch 하도록 만드는 방법
+- fetch : api로부터 데이터를 비동기로 가져와 컴포넌트에 전달
+
+invalidateQueries로 쿼리를 무효화하면 생기는 두가지 일
+1. 쿼리가 오래된 상태로 표시됩니다. 이 오래된 상태는 useQuery 또는 관련 훅에서 사용하는 staleTime 구성을 무시
+2. 쿼리가 현재 useQuery 또는 관련 훅을 통해 렌더링 중일 경우, 백그라운드에서 다시 가져옴
+
+Query Matching with invalidateQueries
+- 키의 접두사를 사용해 여러 쿼리를 매칭하거나 특정 쿼리 매칭
+
+Updates from Mutation Responses
+- delete, push, post로 서버에서 객체를 업데이트 하는 뮤테이션을 처리할 때, 뮤테이션 응답에서 자동으로 반환됨
+- 이미 가지고 있는 객체는 재사용
+
+Immutablity
+- 불변방식으로 업데이트
+- 캐시에서 가져온 데이터를 직접 수정하면 안됨
