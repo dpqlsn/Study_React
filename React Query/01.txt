@@ -12,7 +12,51 @@ Motivation
 CDN
 모듈 번들러나 패키지 매니저를 사용하지 않는 경우, ESM.sh와 같은 ESM 호환 CDN을 통해 사용할 수 있음
 
+React Query 구조
+- React Query는 서버 상태를 효율적으로 관리하는 라이브러리로, 데이터 패칭, 캐싱, 업데이트, 동기화 등 다양한 기능을 제공
+
 Important Defaults
 - 기본적으로 TanStack Query는 적극적이지만 합리적인 기본값으로 설정되어 있음
 - 기본적으로 useQuery 또는 useInfiniteQuery를 통한 쿼리 인스턴스는 캐시된 데이터를 오래된 것으로 간주
 - 더 이상 활성 인스턴스가 없는 쿼리 결과(useQuery, useInfiniteQuery 또는 쿼리 옵저버)는 "비활성"으로 표시되며 나중에 다시 사용될 경우를 대비하여 캐시에 남아 있음
+
+Query Basics
+- 쿼리는 비동기 데이터 소스에 대한 선언적 의존성으로, 고유한 키에 연결됨
+- 이때 Promise 기반의 메소드 함께 사용 가능하나 서버에서 데이터를 수정하는 메소드를 사용하는 경우, Mutations를 사용하는 것이 좋음
+
+Mutations
+- 쿼리와는 달리 뮤테이션은 일반적으로 데이터를 생성, 업데이트, 삭제 즉 서버 측 효과를 수행하는데에 사용됨
+- 이러한 용도로 TanStack Query는 useMutation 훅을 제공
+
+뮤테이션이 있을 수 있는 상태
+- isIdle 또는 status === 'idle' - 뮤테이션이 현재 유휴 상태이거나 초기화/리셋된 상태
+- isPending 또는 status === 'pending' - 뮤테이션이 현재 실행 중
+- isError 또는 status === 'error' - 뮤테이션이 오류를 만남
+- isSuccess 또는 status === 'success' - 뮤테이션이 성공적이며 뮤테이션 데이터가 사용 가능
+- 이 외에도 뮤테이션의 상태(error, date)에 따라 추가 정보를 얻을 수 있음
+
+Mutation Side Effects
+- 뮤테이션 생애 주기 동안 어느 단계에서나 빠르고 쉽게 사이드 이팩트를 처리할 수 있는 몇 가지 헬퍼 옵션을 제공
+- 이러한 옵션들은 뮤테이션 후 쿼리 무효화 및 재패칭과 낙관적 업데이트에도 유용
+- 콜백 함수 프로미스 변환 >> 저 프로미스가 해결되기를 기다림
+
+Consecutive mutations
+- 연속적인 뮤테이션에서 onSuccess, onError, onSettled 콜백 처리에 약간의 차이가 있음
+- mutate 함수에 전달될 때, 이 콜백들은 한 번만 실행되며, 컴포넌트가 여전히 마운트되어 있을 때만 실행됨
+- 대부분의 경우, useMutation에 전달된 mutationFn은 비동기 함수로 뮤테이션이 이행되는 순서를 mutate 함수 호출 순서와 다를 수 있음
+
+Promises
+- mutateAsync를 사용하여 성공 시에는 해결돠고 오류 발생 시에는 예외를 던지는 프로미스를 얻음
+
+Retry
+- 가본적으로 오류 발생 시 뮤테이션을 재시도하지는 않지만, 이걸 통해 재시도가 가능
+
+Persist mutations
+- 필요에 따라 뮤테이션을 저장소에 영속화 후 재개가능
+
+Persisting Offline mutations
+- 영속성을 위하여 사용함, 페이지를 새로고침 했을 때 뮤테아션을 재개할 수 없으므로 기본 뮤테이션 함수를 제공함
+
+Mutation Scopes
+- 기본적으로 모든 뮤테이션은 병렬로 실행
+- 특정 뮤테이션들을 구분된 그룹(스코프) 으로 나눠서 독립적으로 관리할 수 있도록 도와주는 개념
