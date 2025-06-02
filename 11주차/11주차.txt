@@ -1,0 +1,6 @@
+TypeScript
+- JavaScript의 타입 부분 강화판
+- JavaScript에서 타입 부분을 강화하여, 더욱 안전하게 프로그래밍 할 수 있도록 함
+
+> JavaScript가 너무 커지면서 생기는 문제점 때문에 JavaScript에 Type을 도입하게 됨
+
