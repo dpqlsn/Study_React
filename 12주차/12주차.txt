@@ -1,0 +1,54 @@
+1. 리터럴 타입
+   : 변수나 함수가 특정 값만 가질 수 있도록 엄격하게 타입을 제한하는 방법 
+     즉, 특정 값만 가질 수 있게 함
+   ex ) let a : 1; // type을 지정해주는 대신 1을 사용
+
+   : 여러 리터럴 값을 받을 수 있도록 OR 조건으로 나열하여 허용할 수 있음
+    direction = 'left';  // ✅
+    direction = 'down';  // ✅
+
+    : 함수의 파라미터, 리턴 타입에도 리터럴 타입으로 지정 가능함
+    : 의도하지 않은 값이 들어오는 것을 방지할 수 있음
+
+    // 사용 예시
+    advanceToThePlayoffs('KT');    // ✅
+    advanceToThePlayoffs('LOTTE'); // ✅
+
+2. 타입 별칭
+   : 복잡한 타입이나 자주 쓰는 타입에 짧고 의미 있는 이름을 붙여서 더 쉽게 코드에 사용할 수 있도록 도와주는 문법 
+     즉, 타입에 별명을 붙이는 것
+
+     ex ) type UserId = string;
+
+3. 함수 타입 표현식
+  : 함수의 매개변수, 반환 형태를 타입으로 지정한 형태
+  : 가독성, 확장성, 명확성 등의 이유가 있음 
+  : 객체 내부에 함수 타입 표현식 활용하기 
+
+  ex ) 
+
+    function add(a: number, b: number): number {
+    return a + b;
+    }
+
+    >>
+
+    type Operation = (x: number, y: number) => number;
+
+    const add: Operation = (a, b) => a + b;
+    const subtract: Operation = (a, b) => a - b;
+    const multiply: Operation = (a, b) => a * b;
+
+4. 호출 시그니처
+   : 함수 타입 표현식과 동일하게 함수의 타입을 별도로 정의하는 방식 
+
+   ex ) 
+
+    type Operation = {
+    (x: number, y: number) => number;
+    };
+
+    const add: Operation = (a, b) => a + b;
+    const subtract: Operation = (a, b) => a - b;
+    const multiply: Operation = (a, b) => a * b;
+
